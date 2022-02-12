@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 import 'package:studentsaver_app/core/init/navigation/navigation_bloc/navigation_cubit.dart';
+import 'package:studentsaver_app/presentation/add_problem/add_problem_view/add_problem_view.dart';
 import 'package:studentsaver_app/presentation/my_school/my_school_view/my_school_view.dart';
 import 'package:studentsaver_app/presentation/settings/settings_view/settings_view.dart';
 import 'package:studentsaver_app/products/enums/nav_bar_item_enum.dart';
@@ -31,44 +32,44 @@ class HomeView extends StatelessWidget {
             topRight: context.lowRadius * 5,
           ),
         ),
-        child: BlocBuilder<NavigationCubit, NavigationState>(
-          builder: (context, state) {
-            if (state.navBarItem == NavBarItem.HOME) {
-              return _homeViewSizedBox(context);
-            } else if (state.navBarItem == NavBarItem.MY_SCHOOL) {
-              return const MySchoolView();
-            } else if (state.navBarItem == NavBarItem.ADD_PROBLEM) {
-              return const MySchoolView();
-            } else {
-              return const SettingsView();
-            }
-          },
+        child: SizedBox(
+          width: context.width,
+          child: BlocBuilder<NavigationCubit, NavigationState>(
+            builder: (context, state) {
+              if (state.navBarItem == NavBarItem.HOME) {
+                return _homeViewSizedBox(context);
+              } else if (state.navBarItem == NavBarItem.MY_SCHOOL) {
+                return const MySchoolView();
+              } else if (state.navBarItem == NavBarItem.ADD_PROBLEM) {
+                return const AddProblemView();
+              } else {
+                return const SettingsView();
+              }
+            },
+          ),
         ),
       ),
       bottomNavigationBar: _bottomNavigationBar(context),
     );
   }
 
-  SizedBox _homeViewSizedBox(BuildContext context) {
-    return SizedBox(
-      width: context.width,
-      child: Column(
-        children: [
-          Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: _optionContainers(),
-            ),
+  Widget _homeViewSizedBox(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: _optionContainers(),
           ),
-          Expanded(
-              flex: 8,
-              child: ListView.builder(
-                itemCount: 4,
-                padding: context.paddingLow,
-                itemBuilder: (context, index) => ProblemCard(problem: Problem.dummyProblem),
-              )),
-        ],
-      ),
+        ),
+        Expanded(
+            flex: 8,
+            child: ListView.builder(
+              itemCount: 4,
+              padding: context.paddingLow,
+              itemBuilder: (context, index) => ProblemCard(problem: Problem.dummyProblem),
+            )),
+      ],
     );
   }
 

@@ -18,7 +18,7 @@ class Problem {
   });
 
   static final Problem dummyProblem = Problem(
-      levelEnum: ProblemLevelEnum.LOW,
+      levelEnum: ProblemLevelEnum.HIGH,
       school: School.dummySchool,
       date: DateTime.now(),
       fromWho: User.dummyUser,

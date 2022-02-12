@@ -23,33 +23,19 @@ class ProblemCard extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text(
-                        problem.school.name,
-                        style: context.textTheme.headline5,
-                      ),
-                      Text(
-                        DateFormat('dd/MM/yyyy').format(problem.date),
-                        style: context.textTheme.titleMedium,
-                      ),
+                      _problemSchoolNameText(context),
+                      _dateText(context),
                     ],
                   ),
                 ),
-                Expanded(
-                    flex: 4,
-                    child: Image.asset(
-                      problem.image,
-                      fit: BoxFit.contain,
-                    )),
+                Expanded(flex: 4, child: _problemImage()),
                 Expanded(
                   child: Row(
                     children: [
                       const Spacer(),
                       ProblemLevelCard(level: problem.levelEnum),
                       const Spacer(flex: 4),
-                      Text(
-                        problem.fromWho.nickname,
-                        style: context.textTheme.headline5,
-                      ),
+                      _fromWhoText(context),
                       const Spacer(),
                     ],
                   ),
@@ -57,6 +43,34 @@ class ProblemCard extends StatelessWidget {
               ],
             )),
       ),
+    );
+  }
+
+  Text _dateText(BuildContext context) {
+    return Text(
+      DateFormat('dd/MM/yyyy').format(problem.date),
+      style: context.textTheme.titleMedium,
+    );
+  }
+
+  Text _problemSchoolNameText(BuildContext context) {
+    return Text(
+      problem.school.name,
+      style: context.textTheme.headline5,
+    );
+  }
+
+  Image _problemImage() {
+    return Image.asset(
+      problem.image,
+      fit: BoxFit.contain,
+    );
+  }
+
+  Text _fromWhoText(BuildContext context) {
+    return Text(
+      problem.fromWho.nickname,
+      style: context.textTheme.headline5,
     );
   }
 }

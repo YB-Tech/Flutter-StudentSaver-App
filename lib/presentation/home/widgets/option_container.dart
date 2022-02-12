@@ -15,21 +15,29 @@ class OptionContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => optionCallBack(optionEnum),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: context.lowBorderRadius / 3,
-          color: isSelected ? colorConstants.segmentSelectedBg : colorConstants.segmentUnselectedBg,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            optionEnum.name,
-            style: context.textTheme.headline6?.copyWith(
-              color: isSelected ? colorConstants.segmentSelectedFg : colorConstants.segmentUnselectedFg,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-        ),
+      child: _optionContainer(context),
+    );
+  }
+
+  Container _optionContainer(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: context.lowBorderRadius / 3,
+        color: isSelected ? colorConstants.segmentSelectedBg : colorConstants.segmentUnselectedBg,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: _optionText(context),
+      ),
+    );
+  }
+
+  Text _optionText(BuildContext context) {
+    return Text(
+      optionEnum.name,
+      style: context.textTheme.headline6?.copyWith(
+        color: isSelected ? colorConstants.segmentSelectedFg : colorConstants.segmentUnselectedFg,
+        fontWeight: FontWeight.w700,
       ),
     );
   }

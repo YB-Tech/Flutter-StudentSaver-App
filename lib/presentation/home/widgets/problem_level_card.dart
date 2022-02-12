@@ -9,18 +9,26 @@ class ProblemLevelCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: level.toBgColor,
-        borderRadius: context.lowBorderRadius,
-      ),
+      decoration: _containerBoxDecoration(context),
       child: Padding(
         padding: context.paddingLow,
-        child: Text(
-          level.name,
-          style: context.textTheme.headline6?.copyWith(
-            color: level.toFgColor,
-          ),
-        ),
+        child: _levelNameText(context),
+      ),
+    );
+  }
+
+  BoxDecoration _containerBoxDecoration(BuildContext context) {
+    return BoxDecoration(
+      color: level.toBgColor,
+      borderRadius: context.lowBorderRadius,
+    );
+  }
+
+  Text _levelNameText(BuildContext context) {
+    return Text(
+      level.name,
+      style: context.textTheme.headline6?.copyWith(
+        color: level.toFgColor,
       ),
     );
   }

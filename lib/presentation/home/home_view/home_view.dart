@@ -34,18 +34,21 @@ class HomeView extends StatelessWidget {
         ),
         child: SizedBox(
           width: context.width,
-          child: BlocBuilder<NavigationCubit, NavigationState>(
-            builder: (context, state) {
-              if (state.navBarItem == NavBarItem.HOME) {
-                return _homeViewSizedBox(context);
-              } else if (state.navBarItem == NavBarItem.MY_SCHOOL) {
-                return const MySchoolView();
-              } else if (state.navBarItem == NavBarItem.ADD_PROBLEM) {
-                return const AddProblemView();
-              } else {
-                return const SettingsView();
-              }
-            },
+          child: Padding(
+            padding: context.paddingNormal,
+            child: BlocBuilder<NavigationCubit, NavigationState>(
+              builder: (context, state) {
+                if (state.navBarItem == NavBarItem.HOME) {
+                  return _homeViewSizedBox(context);
+                } else if (state.navBarItem == NavBarItem.MY_SCHOOL) {
+                  return const MySchoolView();
+                } else if (state.navBarItem == NavBarItem.ADD_PROBLEM) {
+                  return const AddProblemView();
+                } else {
+                  return const SettingsView();
+                }
+              },
+            ),
           ),
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import 'package:studentsaver_app/presentation/settings/settings_view/settings_view.dart';
 import '../../../models/Problem.dart';
 import 'package:intl/intl.dart';
 import 'problem_level_card.dart';
@@ -12,36 +13,39 @@ class ProblemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: context.verticalPaddingLow,
-      child: Container(
-        height: context.height / 2,
-        decoration: BoxDecoration(borderRadius: context.lowBorderRadius * 2),
-        child: Card(
-            elevation: 10,
-            child: Column(
-              children: [
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      _problemSchoolNameText(context),
-                      _dateText(context),
-                    ],
+      child: GestureDetector(
+        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsView())),
+        child: Container(
+          height: context.height / 2,
+          decoration: BoxDecoration(borderRadius: context.lowBorderRadius * 2),
+          child: Card(
+              elevation: 10,
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        _problemSchoolNameText(context),
+                        _dateText(context),
+                      ],
+                    ),
                   ),
-                ),
-                Expanded(flex: 4, child: _problemImage()),
-                Expanded(
-                  child: Row(
-                    children: [
-                      const Spacer(),
-                      ProblemLevelCard(level: problem.levelEnum),
-                      const Spacer(flex: 4),
-                      _fromWhoText(context),
-                      const Spacer(),
-                    ],
+                  Expanded(flex: 4, child: _problemImage()),
+                  Expanded(
+                    child: Row(
+                      children: [
+                        const Spacer(),
+                        ProblemLevelCard(level: problem.levelEnum),
+                        const Spacer(flex: 4),
+                        _fromWhoText(context),
+                        const Spacer(),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            )),
+                ],
+              )),
+        ),
       ),
     );
   }

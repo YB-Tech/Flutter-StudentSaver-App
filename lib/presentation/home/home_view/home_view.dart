@@ -37,6 +37,8 @@ class HomeView extends StatelessWidget {
               return _homeViewSizedBox(context);
             } else if (state.navBarItem == NavBarItem.MY_SCHOOL) {
               return const MySchoolView();
+            } else if (state.navBarItem == NavBarItem.ADD_PROBLEM) {
+              return const MySchoolView();
             } else {
               return const SettingsView();
             }
@@ -86,21 +88,29 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  BottomNavigationBar _bottomNavigationBar(BuildContext context) {
-    return BottomNavigationBar(
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.school), label: 'My School'),
-        BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
-      ],
-      onTap: (index) {
-        if (index == 0) {
-          BlocProvider.of<NavigationCubit>(context).getNavBarItem(NavBarItem.HOME);
-        } else if (index == 1) {
-          BlocProvider.of<NavigationCubit>(context).getNavBarItem(NavBarItem.MY_SCHOOL);
-        } else {
-          BlocProvider.of<NavigationCubit>(context).getNavBarItem(NavBarItem.SETTINGS);
-        }
+  BlocBuilder _bottomNavigationBar(BuildContext context) {
+    return BlocBuilder<NavigationCubit, NavigationState>(
+      builder: (context, state) {
+        return BottomNavigationBar(
+          currentIndex: state.index,
+          items: [
+            BottomNavigationBarItem(icon: const Icon(Icons.home), label: stringConstants.homeText),
+            BottomNavigationBarItem(icon: const Icon(Icons.school), label: stringConstants.mySchoolText),
+            BottomNavigationBarItem(icon: const Icon(Icons.add), label: stringConstants.addProblemText),
+            BottomNavigationBarItem(icon: const Icon(Icons.settings), label: stringConstants.settingsText),
+          ],
+          onTap: (index) {
+            if (index == 0) {
+              BlocProvider.of<NavigationCubit>(context).getNavBarItem(NavBarItem.HOME);
+            } else if (index == 1) {
+              BlocProvider.of<NavigationCubit>(context).getNavBarItem(NavBarItem.MY_SCHOOL);
+            } else if (index == 2) {
+              BlocProvider.of<NavigationCubit>(context).getNavBarItem(NavBarItem.ADD_PROBLEM);
+            } else {
+              BlocProvider.of<NavigationCubit>(context).getNavBarItem(NavBarItem.SETTINGS);
+            }
+          },
+        );
       },
     );
   }

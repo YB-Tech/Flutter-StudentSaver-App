@@ -22,9 +22,12 @@ class MyApp extends StatelessWidget {
         navigatorKey: NavigationService.instance.navigatorKey,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          appBarTheme: _appBarTheme(context),
-          scaffoldBackgroundColor: ColorConstants.instance.scaffoldBgColor,
-        ),
+            appBarTheme: _appBarTheme(context),
+            scaffoldBackgroundColor: ColorConstants.instance.scaffoldBgColor,
+            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              selectedItemColor: ColorConstants.instance.segmentSelectedBg,
+              unselectedItemColor: ColorConstants.instance.segmentUnselectedBg,
+            )),
         home: const HomeView(),
       ),
     );

@@ -7,4 +7,8 @@ class StringConstants {
   String get highText => 'HIGH';
   String get normalText => 'NORMAL';
   String get lowText => 'LOW';
+  String get homeText => 'HOME';
+  String get mySchoolText => 'MY SCHOOL';
+  String get addProblemText => 'ADD PROBLEM';
+  String get settingsText => 'SETTINGS';
 }

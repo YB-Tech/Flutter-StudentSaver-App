@@ -18,9 +18,10 @@ class Problem {
   });
 
   static final Problem dummyProblem = Problem(
-      levelEnum: ProblemLevelEnum.HIGH,
-      school: School.dummySchool,
-      date: DateTime.now(),
-      fromWho: User.dummyUser,
-      image: ImageConstants.instance.dummyImage);
+    levelEnum: ProblemLevelEnum.HIGH,
+    school: School.dummySchool,
+    date: DateTime.now(),
+    fromWho: User.dummyUser,
+    image: ImageConstants.instance.dummyImage,
+  );
 }

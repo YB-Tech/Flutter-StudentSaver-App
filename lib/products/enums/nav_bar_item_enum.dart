@@ -1,1 +1,1 @@
-enum NavBarItem { HOME, MY_SCHOOL, SETTINGS }
+enum NavBarItem { HOME, MY_SCHOOL, ADD_PROBLEM, SETTINGS }

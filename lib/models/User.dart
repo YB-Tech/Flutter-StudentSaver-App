@@ -15,6 +15,11 @@ class User {
     required this.school,
   });
 
-  static final User dummyUser =
-      User(email: 'email@email.com', password: '12345', nickname: 'nicname1', userState: UserState.SAVER, school: School.dummySchool);
+  static final User dummyUser = User(
+    email: 'email@email.com',
+    password: '12345',
+    nickname: 'nicname1',
+    userState: UserState.SAVER,
+    school: School.dummySchool,
+  );
 }

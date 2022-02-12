@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:studentsaver_app/presentation/auth/widgets/buttons/sign_in_up_button.dart';
-import 'package:studentsaver_app/presentation/auth/widgets/textfields/text_field.dart';
+import 'package:studentsaver_app/products/widgets/text_field.dart';
 import 'package:studentsaver_app/presentation/auth/widgets/titles/title_info.dart';
 
 class RegisterView extends StatelessWidget {

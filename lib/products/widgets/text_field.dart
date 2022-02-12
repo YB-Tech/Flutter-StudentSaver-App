@@ -35,19 +35,17 @@ class MyTextField extends StatelessWidget {
       margin: EdgeInsets.only(right: width * 5 / 100, top: height * 3 / 100),
       child: Theme(
         child: Padding(
-          padding:
-              EdgeInsets.fromLTRB(width * 3.5 / 100, 2, width * 4.5 / 100, 2),
+          padding: EdgeInsets.fromLTRB(width * 3.5 / 100, 2, width * 4.5 / 100, 2),
           child: TextFormField(
             cursorColor: Colors.black,
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.all(18),
+              contentPadding: const EdgeInsets.all(18),
               focusColor: Colors.grey[300],
               prefixIcon: Icon(
                 preffixIcon,
                 color: Colors.black,
               ),
-              suffixIcon:
-                  hasSuffixIcon ? Icon(Icons.remove_red_eye_outlined) : null,
+              suffixIcon: hasSuffixIcon ? Icon(Icons.remove_red_eye_outlined) : null,
               filled: true,
               fillColor: Colors.white,
               border: InputBorder.none,

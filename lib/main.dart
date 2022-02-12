@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:studentsaver_app/core/init/navigation/navigation_route.dart';
-import 'package:studentsaver_app/core/init/navigation/navigation_service.dart';
+import 'core/init/navigation/navigation_route.dart';
+import 'core/init/navigation/navigation_service.dart';
+import 'presentation/auth/register/register_view/register_view.dart';
 
 import 'presentation/auth/login/login_view/login_view.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: NavigationRoute.instance.generateRoute,
       navigatorKey: NavigationService.instance.navigatorKey,
       debugShowCheckedModeBanner: false,
-      home: const LoginView(),
+      home: const RegisterView(),
     );
   }
 }

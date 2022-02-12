@@ -5,6 +5,8 @@ import 'core/init/navigation/navigation_route.dart';
 import 'core/init/navigation/navigation_service.dart';
 import 'presentation/home/home_view/home_view.dart';
 
+import 'presentation/auth/login/login_view/login_view.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {

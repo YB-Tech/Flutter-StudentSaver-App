@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:studentsaver_app/core/init/navigation/navigation_route.dart';
 import 'package:studentsaver_app/core/init/navigation/navigation_service.dart';
 
+import 'presentation/auth/login/login_view/login_view.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -13,14 +15,8 @@ class MyApp extends StatelessWidget {
       title: 'StudentSaver App',
       onGenerateRoute: NavigationRoute.instance.generateRoute,
       navigatorKey: NavigationService.instance.navigatorKey,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      home: const LoginView(),
     );
   }
 }

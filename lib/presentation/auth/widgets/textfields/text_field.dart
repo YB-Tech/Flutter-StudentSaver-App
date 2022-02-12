@@ -37,12 +37,15 @@ class MyTextField extends StatelessWidget {
         child: Padding(
           padding:
               EdgeInsets.fromLTRB(width * 3.5 / 100, 2, width * 4.5 / 100, 2),
-          child: TextField(
+          child: TextFormField(
             cursorColor: Colors.black,
             decoration: InputDecoration(
               contentPadding: EdgeInsets.all(18),
               focusColor: Colors.grey[300],
-              prefixIcon: Icon(Icons.lock),
+              prefixIcon: Icon(
+                preffixIcon,
+                color: Colors.black,
+              ),
               suffixIcon:
                   hasSuffixIcon ? Icon(Icons.remove_red_eye_outlined) : null,
               filled: true,

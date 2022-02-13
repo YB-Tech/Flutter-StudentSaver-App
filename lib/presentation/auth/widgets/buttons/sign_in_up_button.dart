@@ -3,13 +3,15 @@ import 'package:kartal/kartal.dart';
 
 class SignInUpButton extends StatelessWidget {
   final String text;
-  const SignInUpButton({Key? key, required this.text}) : super(key: key);
+  final IconData? icon;
+  final VoidCallback callback;
+  const SignInUpButton({Key? key, required this.text, this.icon, required this.callback}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double width = context.width;
     double height = context.height;
-    return Container(
+    return SizedBox(
       width: width * 50 / 100,
       height: height * 10 / 100,
       child: Row(
@@ -27,22 +29,20 @@ class SignInUpButton extends StatelessWidget {
             ),
           ),
           GestureDetector(
+            onTap: () => callback(),
             child: Container(
               width: width * 14 / 100,
               height: height * 5.5 / 100,
               decoration: BoxDecoration(
                 color: Colors.orange,
                 borderRadius: BorderRadius.circular(20),
-                gradient: LinearGradient(
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                    colors: [
-                      Colors.orange,
-                      Color.fromARGB(255, 250, 203, 133),
-                    ]),
+                gradient: const LinearGradient(begin: Alignment.bottomCenter, end: Alignment.topCenter, colors: [
+                  Colors.orange,
+                  Color.fromARGB(255, 250, 203, 133),
+                ]),
               ),
               child: Icon(
-                Icons.arrow_forward_sharp,
+                icon ?? Icons.arrow_forward_sharp,
                 color: Colors.white,
                 size: 30,
               ),

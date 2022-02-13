@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:kartal/kartal.dart';
 import 'package:studentsaver_app/core/constants/color_constants.dart';
 import 'package:studentsaver_app/presentation/auth/widgets/buttons/sign_in_up_button.dart';
@@ -22,11 +21,13 @@ class AddProblemView extends StatelessWidget {
           padding: context.paddingMedium,
           child: _dropdownButtonsRow(context),
         ),
-
-        //todo: set width for text wrap, dynamic icon, extract onClick method
         Padding(
           padding: EdgeInsets.only(bottom: context.normalValue),
-          child: const SignInUpButton(text: 'Upload \n Image'),
+          child: SignInUpButton(
+            text: 'Upload \n Image',
+            icon: Icons.camera_alt_outlined,
+            callback: () {},
+          ),
         ),
         Container(
           decoration: BoxDecoration(

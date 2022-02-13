@@ -16,18 +16,16 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.only(top: height * 15 / 100),
-        child: Container(
+        child: SizedBox(
           width: context.width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                child: Column(
-                  children: [
-                    TitleHello(),
-                    TitleInfo(title: "Sign in your account", fontSize: 25),
-                  ],
-                ),
+              Column(
+                children: [
+                  TitleHello(),
+                  TitleInfo(title: "Sign in your account", fontSize: 25),
+                ],
               ),
               Padding(
                 padding: EdgeInsets.fromLTRB(
@@ -72,6 +70,7 @@ class LoginView extends StatelessWidget {
         children: [
           SignInUpButton(
             text: "Sign in",
+            callback: () {},
           ),
         ],
       ),

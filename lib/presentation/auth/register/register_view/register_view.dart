@@ -22,7 +22,7 @@ class RegisterView extends StatelessWidget {
               Container(
                 child: Column(
                   children: [
-                    TitleInfo(title: "Create account", fontSize: 30),
+                    const TitleInfo(title: "Create account", fontSize: 30),
                   ],
                 ),
               ),
@@ -35,22 +35,22 @@ class RegisterView extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    MyTextField(
+                    const MyTextField(
                       hintText: "User Name",
                       preffixIcon: Icons.person,
                       hasSuffixIcon: false,
                     ),
-                    MyTextField(
+                    const MyTextField(
                       hintText: "Password",
                       preffixIcon: Icons.lock,
                       hasSuffixIcon: true,
                     ),
-                    MyTextField(
+                    const MyTextField(
                       hintText: "E-mail",
                       preffixIcon: Icons.mail,
                       hasSuffixIcon: false,
                     ),
-                    MyTextField(
+                    const MyTextField(
                       hintText: "Mobile",
                       preffixIcon: Icons.call,
                       hasSuffixIcon: false,
@@ -77,6 +77,7 @@ class RegisterView extends StatelessWidget {
         children: [
           SignInUpButton(
             text: "Create",
+            callback: () {},
           ),
         ],
       ),

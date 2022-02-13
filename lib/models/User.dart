@@ -1,6 +1,11 @@
+import 'package:json_annotation/json_annotation.dart';
+
 import 'School.dart';
 import '../products/enums/user_state_enum.dart';
 
+part 'User.g.dart';
+
+@JsonSerializable()
 class User {
   final String email;
   final String password;
@@ -22,4 +27,8 @@ class User {
     userState: UserState.SAVER,
     school: School.dummySchool,
   );
+
+  Map<String, dynamic> toJson() => _$UserToJson(this);
+
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }

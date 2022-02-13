@@ -9,7 +9,7 @@ class SettingsView extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = context.width;
     double height = context.height;
-    return Container(
+    return SizedBox(
       height: height,
       child: Column(
         children: [
@@ -32,14 +32,12 @@ class SettingsView extends StatelessWidget {
     );
   }
 
-  Container _titleContainer(BuildContext context) {
-    return Container(
-      child: Text(
-        "SETTINGS",
-        style: context.textTheme.headline5?.copyWith(
-          fontWeight: FontWeight.w700,
-          color: Colors.orange,
-        ),
+  Text _titleContainer(BuildContext context) {
+    return Text(
+      "SETTINGS",
+      style: context.textTheme.headline5?.copyWith(
+        fontWeight: FontWeight.w700,
+        color: Colors.orange,
       ),
     );
   }

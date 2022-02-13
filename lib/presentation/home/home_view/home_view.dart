@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
-import 'package:studentsaver_app/core/init/navigation/navigation_bloc/navigation_cubit.dart';
-import 'package:studentsaver_app/presentation/add_problem/add_problem_view/add_problem_view.dart';
-import 'package:studentsaver_app/presentation/my_school/my_school_view/my_school_view.dart';
-import 'package:studentsaver_app/presentation/settings/settings_view/settings_view.dart';
-import 'package:studentsaver_app/products/enums/nav_bar_item_enum.dart';
+import '../../../core/init/navigation/navigation_bloc/navigation_cubit.dart';
+import '../../add_problem/add_problem_view/add_problem_view.dart';
+import '../../my_school/my_school_view/my_school_view.dart';
+import '../../settings/settings_view/settings_view.dart';
+import '../../../products/enums/nav_bar_item_enum.dart';
 import '../../../core/constants/color_constants.dart';
 import '../../../core/constants/image_constants.dart';
 
@@ -43,7 +43,7 @@ class HomeView extends StatelessWidget {
                 } else if (state.navBarItem == NavBarItem.MY_SCHOOL) {
                   return const MySchoolView();
                 } else if (state.navBarItem == NavBarItem.ADD_PROBLEM) {
-                  return const AddProblemView();
+                  return AddProblemView();
                 } else {
                   return const SettingsView();
                 }

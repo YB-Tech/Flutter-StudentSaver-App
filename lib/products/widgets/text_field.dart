@@ -5,11 +5,13 @@ class MyTextField extends StatelessWidget {
   final String hintText;
   final IconData preffixIcon;
   final bool hasSuffixIcon;
+  final TextEditingController controller;
   const MyTextField({
     Key? key,
     required this.hintText,
     required this.preffixIcon,
     required this.hasSuffixIcon,
+    required this.controller,
   }) : super(key: key);
 
   @override
@@ -37,6 +39,7 @@ class MyTextField extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.fromLTRB(width * 3.5 / 100, 2, width * 4.5 / 100, 2),
           child: TextFormField(
+            controller: controller,
             cursorColor: Colors.black,
             decoration: InputDecoration(
               contentPadding: const EdgeInsets.all(18),

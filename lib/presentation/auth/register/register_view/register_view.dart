@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:studentsaver_app/presentation/auth/widgets/buttons/sign_in_up_button.dart';
-import 'package:studentsaver_app/products/widgets/text_field.dart';
-import 'package:studentsaver_app/presentation/auth/widgets/titles/title_info.dart';
+import '../../widgets/buttons/sign_in_up_button.dart';
+import '../../../../products/widgets/text_field.dart';
+import '../../widgets/titles/title_info.dart';
 
 class RegisterView extends StatelessWidget {
-  const RegisterView({Key? key}) : super(key: key);
+  RegisterView({Key? key}) : super(key: key);
+  final TextEditingController nicknameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,24 +38,22 @@ class RegisterView extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    const MyTextField(
-                      hintText: "User Name",
+                    MyTextField(
+                      controller: nicknameController,
+                      hintText: "Nickname",
                       preffixIcon: Icons.person,
                       hasSuffixIcon: false,
                     ),
-                    const MyTextField(
+                    MyTextField(
+                      controller: passwordController,
                       hintText: "Password",
                       preffixIcon: Icons.lock,
                       hasSuffixIcon: true,
                     ),
-                    const MyTextField(
+                    MyTextField(
+                      controller: emailController,
                       hintText: "E-mail",
                       preffixIcon: Icons.mail,
-                      hasSuffixIcon: false,
-                    ),
-                    const MyTextField(
-                      hintText: "Mobile",
-                      preffixIcon: Icons.call,
                       hasSuffixIcon: false,
                     ),
                     signInButtonContainer(width, height),

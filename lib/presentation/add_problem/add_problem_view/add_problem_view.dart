@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:studentsaver_app/core/constants/color_constants.dart';
-import 'package:studentsaver_app/presentation/auth/widgets/buttons/sign_in_up_button.dart';
-import 'package:studentsaver_app/products/enums/problem_level_enum.dart';
-import 'package:studentsaver_app/products/widgets/text_field.dart';
+import '../../../core/constants/color_constants.dart';
+import '../../auth/widgets/buttons/sign_in_up_button.dart';
+import '../../../products/enums/problem_level_enum.dart';
+import '../../../products/widgets/text_field.dart';
 
 class AddProblemView extends StatelessWidget {
-  const AddProblemView({Key? key}) : super(key: key);
-
+  AddProblemView({Key? key}) : super(key: key);
+  final TextEditingController descriptionController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,7 +16,7 @@ class AddProblemView extends StatelessWidget {
         const Expanded(
           child: Placeholder(),
         ),
-        const MyTextField(hintText: 'Problem Description', preffixIcon: Icons.description, hasSuffixIcon: false),
+        MyTextField(hintText: 'Problem Description', preffixIcon: Icons.description, hasSuffixIcon: false, controller: descriptionController),
         Padding(
           padding: context.paddingMedium,
           child: _dropdownButtonsRow(context),
@@ -69,7 +69,7 @@ class AddProblemView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         _schoolDropdownButton(context),
-        Spacer(),
+        const Spacer(),
         _levelsDropdownButton(context),
       ],
     );

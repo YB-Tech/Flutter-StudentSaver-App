@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:studentsaver_app/presentation/auth/widgets/buttons/sign_in_up_button.dart';
-import 'package:studentsaver_app/presentation/auth/widgets/sign_in_up_info/sign_in_up_info.dart';
-import 'package:studentsaver_app/products/widgets/text_field.dart';
-import 'package:studentsaver_app/presentation/auth/widgets/titles/title_hello.dart';
-import 'package:studentsaver_app/presentation/auth/widgets/titles/title_info.dart';
+import '../../widgets/buttons/sign_in_up_button.dart';
+import '../../widgets/sign_in_up_info/sign_in_up_info.dart';
+import '../../../../products/widgets/text_field.dart';
+import '../../widgets/titles/title_hello.dart';
+import '../../widgets/titles/title_info.dart';
 
 class LoginView extends StatelessWidget {
-  const LoginView({Key? key}) : super(key: key);
-
+  LoginView({Key? key}) : super(key: key);
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double width = context.width;
@@ -37,11 +38,13 @@ class LoginView extends StatelessWidget {
                 child: Column(
                   children: [
                     MyTextField(
-                      hintText: "User Name",
-                      preffixIcon: Icons.lock,
+                      controller: emailController,
+                      hintText: "E-mail",
+                      preffixIcon: Icons.mail,
                       hasSuffixIcon: false,
                     ),
                     MyTextField(
+                      controller: passController,
                       hintText: "Password",
                       preffixIcon: Icons.lock,
                       hasSuffixIcon: true,

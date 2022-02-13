@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:studentsaver_app/products/enums/nav_bar_item_enum.dart';
+import '../../../../products/enums/nav_bar_item_enum.dart';
 
 part './navigation_state.dart';
 

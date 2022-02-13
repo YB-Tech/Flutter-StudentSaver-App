@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:studentsaver_app/presentation/auth/register/register_view/register_view.dart';
+import 'presentation/auth/register/register_view/register_view.dart';
 import 'core/init/navigation/navigation_bloc/navigation_cubit.dart';
 import 'core/init/navigation/navigation_route.dart';
 import 'core/init/navigation/navigation_service.dart';
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
               selectedItemColor: ColorConstants.instance.segmentSelectedBg,
               unselectedItemColor: ColorConstants.instance.segmentUnselectedBg,
             )),
-        home: const RegisterView(),
+        home: RegisterView(),
       ),
     );
   }

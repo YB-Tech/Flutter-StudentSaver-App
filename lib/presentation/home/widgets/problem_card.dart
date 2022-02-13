@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:studentsaver_app/presentation/settings/settings_view/settings_view.dart';
+import '../../settings/settings_view/settings_view.dart';
 import '../../../models/Problem.dart';
 import 'package:intl/intl.dart';
 import 'problem_level_card.dart';

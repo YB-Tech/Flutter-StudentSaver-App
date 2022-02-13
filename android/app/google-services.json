@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "786011199810",
+    "project_id": "studentsaverapp-5d2f9",
+    "storage_bucket": "studentsaverapp-5d2f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:786011199810:android:d45bd9aacb85e8c52110db",
+        "android_client_info": {
+          "package_name": "com.example.studentsaver_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "786011199810-mmje9mja9avdlv9k7t0njc4jc958qs10.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKHSenV_9bT4rFnQa9IK3VwtKKFAVcHUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "786011199810-mmje9mja9avdlv9k7t0njc4jc958qs10.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "786011199810-dk630k77ft3dvivt87mlirv953c311s8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.studentsaverApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

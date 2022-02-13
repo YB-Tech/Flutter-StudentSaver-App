@@ -1,8 +1,12 @@
+import 'package:json_annotation/json_annotation.dart';
 import '../core/constants/image_constants.dart';
 import 'School.dart';
 import 'User.dart';
 import '../products/enums/problem_level_enum.dart';
 
+part 'Problem.g.dart';
+
+@JsonSerializable()
 class Problem {
   final ProblemLevelEnum levelEnum;
   final School school;
@@ -24,4 +28,8 @@ class Problem {
     fromWho: User.dummyUser,
     image: ImageConstants.instance.dummyImage,
   );
+
+  Map<String, dynamic> toJson() => _$ProblemToJson(this);
+
+  factory Problem.fromJson(Map<String, dynamic> json) => _$ProblemFromJson(json);
 }

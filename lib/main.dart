@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:studentsaver_app/presentation/add_problem/add_problem_view/add_problem_view.dart';
+import 'package:studentsaver_app/presentation/auth/login/login_view/login_view.dart';
 import 'presentation/auth/register/register_view/register_view.dart';
 import 'core/init/navigation/navigation_bloc/navigation_cubit.dart';
 import 'core/init/navigation/navigation_route.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         navigatorKey: NavigationService.instance.navigatorKey,
         debugShowCheckedModeBanner: false,
         theme: _themeData(context),
-        home: RegisterView(),
+        home: LoginView(),
       ),
     );
   }

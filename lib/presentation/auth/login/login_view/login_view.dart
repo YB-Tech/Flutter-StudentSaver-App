@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import 'package:studentsaver_app/core/data/firebase/concrete/firebase_auth_manager.dart';
+import '../../../../models/Person.dart';
+import '../../../../models/School.dart';
+import '../../../../products/enums/user_state_enum.dart';
 import '../../widgets/buttons/sign_in_up_button.dart';
 import '../../widgets/sign_in_up_info/sign_in_up_info.dart';
 import '../../../../products/widgets/text_field.dart';
@@ -10,6 +14,18 @@ class LoginView extends StatelessWidget {
   LoginView({Key? key}) : super(key: key);
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
+  FirebaseAuthManager firebaseAuthManager = FirebaseAuthManager();
+  void login() {
+    final myUser = Person(
+      email: emailController.text,
+      password: passController.text,
+      nickname: '',
+      userState: UserState.SAVER,
+      school: School(name: "asdasd", point: 4.0),
+    );
+    firebaseAuthManager.firebaseSignIn(myUser);
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = context.width;
@@ -51,7 +67,8 @@ class LoginView extends StatelessWidget {
                     ),
                     forgotYourPassword(height, width, context),
                     signInButtonContainer(width, height),
-                    SignInUpInfo(text: "Don't have an account?", isSignIn: true),
+                    SignInUpInfo(
+                        text: "Don't have an account?", isSignIn: true),
                   ],
                 ),
               ),
@@ -73,14 +90,17 @@ class LoginView extends StatelessWidget {
         children: [
           SignInUpButton(
             text: "Sign in",
-            callback: () {},
+            callback: () {
+              login();
+            },
           ),
         ],
       ),
     );
   }
 
-  Padding forgotYourPassword(double height, double width, BuildContext context) {
+  Padding forgotYourPassword(
+      double height, double width, BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: height * 3 / 100, right: width * 11 / 100),
       child: Container(
@@ -88,7 +108,10 @@ class LoginView extends StatelessWidget {
         alignment: Alignment.bottomRight,
         child: Text(
           "Forgot your password?",
-          style: context.textTheme.headline6?.copyWith(fontWeight: FontWeight.w500, color: Colors.grey[400], fontSize: 14),
+          style: context.textTheme.headline6?.copyWith(
+              fontWeight: FontWeight.w500,
+              color: Colors.grey[400],
+              fontSize: 14),
         ),
       ),
     );

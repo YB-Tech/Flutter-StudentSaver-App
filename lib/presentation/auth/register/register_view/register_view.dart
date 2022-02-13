@@ -14,28 +14,28 @@ class RegisterView extends StatelessWidget {
   final TextEditingController nicknameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+  FirebaseAuthManager firebaseAuthManager = FirebaseAuthManager();
+  void register() {
+    final myUser = Person(
+      email: emailController.text,
+      password: passwordController.text,
+      nickname: nicknameController.text,
+      userState: UserState.SAVER,
+      school: School(name: "asdasd", point: 4.0),
+    );
+    firebaseAuthManager.firebaseRegister(myUser);
+  }
 
   @override
   Widget build(BuildContext context) {
     bool? isStudent = false;
     double width = context.width;
     double height = context.height;
-    FirebaseAuthManager firebaseAuthManager = FirebaseAuthManager();
-    void register() {
-      final myUser = Person(
-        email: emailController.text,
-        password: passwordController.text,
-        nickname: nicknameController.text,
-        userState: UserState.SAVER,
-        school: School(name: "asdasd", point: 4.0),
-      );
-      firebaseAuthManager.firebaseRegister(myUser);
-    }
 
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.only(top: height * 25 / 100),
-        child: Container(
+        child: SizedBox(
           width: context.width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -81,29 +81,27 @@ class RegisterView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           _schoolDropdownButton(context),
-                          Container(
-                            child: Row(
-                              children: [
-                                Checkbox(
-                                  value: isStudent,
-                                  onChanged: (bool? value) {
-                                    isStudent = value;
-                                  },
+                          Row(
+                            children: [
+                              Checkbox(
+                                value: isStudent,
+                                onChanged: (bool? value) {
+                                  isStudent = value;
+                                },
+                              ),
+                              Text(
+                                'I am Student',
+                                style: context.textTheme.headline6?.copyWith(
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black,
                                 ),
-                                Text(
-                                  'I am Student',
-                                  style: context.textTheme.headline6?.copyWith(
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
                     ),
-                    signInButtonContainer(width, height, register),
+                    signInButtonContainer(width, height),
                   ],
                 ),
               ),
@@ -114,8 +112,7 @@ class RegisterView extends StatelessWidget {
     );
   }
 
-  Container signInButtonContainer(
-      double width, double height, Function register) {
+  Container signInButtonContainer(double width, double height) {
     return Container(
       padding: EdgeInsets.only(right: width * 5 / 100),
       width: width,

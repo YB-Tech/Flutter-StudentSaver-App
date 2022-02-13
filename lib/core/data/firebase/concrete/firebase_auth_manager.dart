@@ -15,7 +15,16 @@ class FirebaseAuthManager extends FireBaseAuthService {
   }
 
   @override
-  Future<Person> firebaseSignIn(Person person) {
-    throw UnimplementedError();
+  Future<Person> firebaseSignIn(Person person) async {
+    await FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+          email: person.email,
+          password: person.password,
+        )
+        .then((value) => person)
+        .catchError(
+          (e) => print('Login failed $e'),
+        );
+    return person;
   }
 }

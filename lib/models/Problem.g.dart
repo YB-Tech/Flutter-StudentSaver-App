@@ -10,7 +10,7 @@ Problem _$ProblemFromJson(Map<String, dynamic> json) => Problem(
       levelEnum: $enumDecode(_$ProblemLevelEnumEnumMap, json['levelEnum']),
       school: School.fromJson(json['school'] as Map<String, dynamic>),
       date: DateTime.parse(json['date'] as String),
-      fromWho: User.fromJson(json['fromWho'] as Map<String, dynamic>),
+      fromWho: Person.fromJson(json['fromWho'] as Map<String, dynamic>),
       image: json['image'] as String,
     );
 

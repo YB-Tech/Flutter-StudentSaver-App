@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import '../core/constants/image_constants.dart';
 import 'School.dart';
-import 'User.dart';
+import 'Person.dart';
 import '../products/enums/problem_level_enum.dart';
 
 part 'Problem.g.dart';
@@ -11,7 +11,7 @@ class Problem {
   final ProblemLevelEnum levelEnum;
   final School school;
   final DateTime date;
-  final User fromWho;
+  final Person fromWho;
   final String image;
   Problem({
     required this.levelEnum,
@@ -25,11 +25,12 @@ class Problem {
     levelEnum: ProblemLevelEnum.HIGH,
     school: School.dummySchool,
     date: DateTime.now(),
-    fromWho: User.dummyUser,
+    fromWho: Person.dummyUser,
     image: ImageConstants.instance.dummyImage,
   );
 
   Map<String, dynamic> toJson() => _$ProblemToJson(this);
 
-  factory Problem.fromJson(Map<String, dynamic> json) => _$ProblemFromJson(json);
+  factory Problem.fromJson(Map<String, dynamic> json) =>
+      _$ProblemFromJson(json);
 }

@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         navigatorKey: NavigationService.instance.navigatorKey,
         debugShowCheckedModeBanner: false,
         theme: _themeData(context),
-        home: HomeView(),
+        home: RegisterView(),
       ),
     );
   }

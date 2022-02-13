@@ -12,6 +12,7 @@ class RegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool? isStudent = false;
     double width = context.width;
     double height = context.height;
     return Scaffold(
@@ -56,6 +57,37 @@ class RegisterView extends StatelessWidget {
                       preffixIcon: Icons.mail,
                       hasSuffixIcon: false,
                     ),
+                    Container(
+                      padding: EdgeInsets.only(right: width * 5 / 100),
+                      margin: EdgeInsets.only(top: height * 0.5 / 100),
+                      height: height * 10 / 100,
+                      width: width,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          _schoolDropdownButton(context),
+                          Container(
+                            child: Row(
+                              children: [
+                                Checkbox(
+                                  value: isStudent,
+                                  onChanged: (bool? value) {
+                                    isStudent = value;
+                                  },
+                                ),
+                                Text(
+                                  'I am Student',
+                                  style: context.textTheme.headline6?.copyWith(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     signInButtonContainer(width, height),
                   ],
                 ),
@@ -82,6 +114,19 @@ class RegisterView extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  DropdownButton<String> _schoolDropdownButton(BuildContext context) {
+    return DropdownButton<String>(
+      value: 'A',
+      items: const [
+        DropdownMenuItem(value: 'A', child: Text('A SCHOOL')),
+        DropdownMenuItem(value: 'B', child: Text('B SCHOOL')),
+        DropdownMenuItem(value: 'C', child: Text('C SCHOOL')),
+      ],
+      style: context.textTheme.headline6,
+      onChanged: (data) {},
     );
   }
 }
